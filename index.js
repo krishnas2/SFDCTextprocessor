@@ -10,7 +10,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded());
 
 // parse application/json
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
 app.post('/details', (req, res,next) =>{  
 console.log('req is ',req.body);
 temp='';
-res.setHeader('Access-Control-Allow-Origin', '*');
+//res.setHeader('Access-Control-Allow-Origin', '*');
     const client = new Wit({
 		accessToken: 'R64XRDNFFWBICSQRLNDRPKHAIGUG2QZ5',
 	});
