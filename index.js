@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 
 app.post('/details', (req, res,next) =>{  
-console.log('req is ',req.body);
+console.log('req is ',req.body.query);
 temp='';
 //res.setHeader('Access-Control-Allow-Origin', '*');
 	res.header("Access-Control-Allow-Origin", "*");
