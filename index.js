@@ -28,7 +28,7 @@ temp='';
 		accessToken: 'R64XRDNFFWBICSQRLNDRPKHAIGUG2QZ5',
 	});
 	//logger: new log.Logger(log.DEBUG) // optional
-	client.message('Insert an Opportunity with name as maddy, close date as 9/1/2018').then((data) => {
+	client.message(req.body.query).then((data) => {
 	  console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
 	  res.send(JSON.stringify(data));
 			res.end();
