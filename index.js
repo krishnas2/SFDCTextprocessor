@@ -49,7 +49,7 @@ temp='';
 	//logger: new log.Logger(log.DEBUG) // optional
 	client.message(req.body.query).then((data) => {
 	  console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
-	  res.send(dataops(JSON.stringify(data)));
+	  res.send(JSON.Stringify(dataops(data)));
 			res.end();
 	});
 	
