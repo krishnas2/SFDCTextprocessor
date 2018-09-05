@@ -23,7 +23,7 @@ var dataops=(data)=>{
 		var temp={},vals=[];
 		temp['object']=data['entities']['object'][0]['value'];
 		temp['operation']=data['entities']['operation'][0]['value'];
-		temp['raw_result']=data;
+		//temp['raw_result']=data;
 		var loc=data['entities']['info'][0]['value'].split(',');
 		for(var i=0;i<loc.length;i++){
 			if (i==0)
