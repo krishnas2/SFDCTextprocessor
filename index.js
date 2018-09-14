@@ -30,7 +30,7 @@ var dataops=(data)=>{
 			{
 				loc[i]=loc[i].replace(/(with|having|With|Having)/i, '').trim();
 			}
-			loc[i]=loc[i].replace(/( as| =|=)/i, '').trim();
+			loc[i]=loc[i].replace(/( as | = |=)/i, ' ').trim();
 			vals=loc[i].split(' ');
 			temp[vals[0]]=vals[1];
 		}
