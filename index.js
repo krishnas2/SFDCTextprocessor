@@ -23,14 +23,14 @@ var dataops=(data)=>{
 		var temp={},vals=[];
 		temp['object']=data['entities']['object'][0]['value'];
 		temp['operation']=data['entities']['operation'][0]['value'];
-		//temp['raw_result']=data;
+		temp['raw_resp']=JSON.stringify(data);
 		var loc=data['entities']['info'][0]['value'].split(',');
 		for(var i=0;i<loc.length;i++){
 			if (i==0)
 			{
 				loc[i]=loc[i].replace(/(with|having|With|Having)/i, '').trim();
 			}
-			loc[i]=loc[i].replace(/( as)/i, '').trim();
+			loc[i]=loc[i].replace(/( as| =|=)/i, '').trim();
 			vals=loc[i].split(' ');
 			temp[vals[0]]=vals[1];
 		}
