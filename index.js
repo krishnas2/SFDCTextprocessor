@@ -50,10 +50,13 @@ temp='';
 	client.message(req.body.query).then((data) => {
 	  console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
 	  if(!data['entities']['operation'] ){
-		 res.send(JSON.stringify({'raw_resp':data,'lookup':'DB Operation is missing. Ex: Create,Update,Insert etc..'}));
+		 res.send(JSON.stringify({'raw_resp':JSON.stringify(data),'lookup':'DB Operation is missing. Ex: Create,Update,Insert etc..'}));
 	  }
 	  else if(!data['entities']['object']){
-		  res.send(JSON.stringify({'raw_resp':data,'lookup':'DB Object is missing. Ex: Opportunity,Account,Contact etc..'}));
+		  res.send(JSON.stringify({'raw_resp':JSON.stringify(data),'lookup':'DB Object is missing. Ex: Opportunity,Account,Contact etc..'}));
+	  }
+	  else if(!data['entities']['info']){
+		  res.send(JSON.stringify({'raw_resp':JSON.stringify(data),'lookup':'You could follow the pattern, insert opportunity having name as {name},stage as {stage},closedate as yyyy-mm-dd'}));
 	  }
 	  else{
 	  res.send(JSON.stringify(dataops(data)));}
