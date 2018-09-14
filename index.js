@@ -56,7 +56,7 @@ temp='';
 		  res.send(JSON.stringify({'raw_resp':JSON.stringify(data),'lookup':'DB Object is missing. Ex: Opportunity,Account,Contact etc..'}));
 	  }
 	  else if(!data['entities']['info']){
-		  res.send(JSON.stringify({'raw_resp':JSON.stringify(data),'lookup':'You could follow the pattern, '+data['entities']['object'][0]['value']+' '+data['entities']['operation'][0]['value'] +' having name as {name},stage as {stage},closedate as yyyy-mm-dd'}));
+		  res.send(JSON.stringify({'raw_resp':JSON.stringify(data),'lookup':'You could follow the pattern, '+data['entities']['operation'][0]['value']+' '+data['entities']['object'][0]['value'] +' having name as {name},stage as {stage},closedate as yyyy-mm-dd'}));
 	  }
 	  else{
 	  res.send(JSON.stringify(dataops(data)));}
