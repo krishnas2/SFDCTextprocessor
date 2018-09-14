@@ -36,8 +36,8 @@ var dataops=(data)=>{
 			temp[vals[0]]=vals[1];
 		}
 		for (var j=0;j<valcheck.length;j++){
-			if(!temp[j]){
-				v+=' '+j;
+			if(!temp[valcheck[j]]){
+				v+=' '+valcheck[j];
 			}
 		}
 		temp['look']=v?'Some Required fields like '+v+' are missing to '+temp['operation']+' '+temp['object']:'Text Snetence looks Good!!';
