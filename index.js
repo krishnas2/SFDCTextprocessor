@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 var dataops=(data)=>{
 //console.log('databv bvbv          ',data);
 		//console.log(data['entities']['object'][0]['value'],data['entities']['operation'][0]['value'],data['entities']['info'][0]['value']);
-		var temp={},vals=[];
+		var temp={},vals=[],valcheck=['name','closedate','stage'],v='';
 		temp['object']=data['entities']['object'][0]['value'];
 		temp['operation']=data['entities']['operation'][0]['value'];
 		temp['raw_resp']=JSON.stringify(data);
@@ -31,9 +31,16 @@ var dataops=(data)=>{
 				loc[i]=loc[i].replace(/(with|having|With|Having)/i, '').trim();
 			}
 			loc[i]=loc[i].replace(/( as | = |=)/i, ' ').trim();
+			loc[i]=loc[i].replace(/(close date)/i, 'closedate').trim();
 			vals=loc[i].split(' ');
 			temp[vals[0]]=vals[1];
 		}
+		for (var j=0;j<valcheck.length;j++){
+			if(!temp[j]){
+				v+=' '+j;
+			}
+		}
+		temp['look']=v?'Some Required fields like '+v+' are missing to '+temp['operation']+' '+temp['object']:'Text Snetence looks Good!!';
 		console.log('temp is      ' ,temp);
 		return temp;
 	};
