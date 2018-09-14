@@ -52,6 +52,9 @@ temp='';
 	  if(!data['entities']['operation'] ){
 		 res.send(JSON.stringify({'raw_resp':data,'lookup':'DB Operation is missing. Ex: Create,Update,Insert etc..'}));
 	  }
+	  else if(!data['entities']['object']){
+		  res.send(JSON.stringify({'raw_resp':data,'lookup':'DB Object is missing. Ex: Opportunity,Account,Contact etc..'}));
+	  }
 	  else{
 	  res.send(JSON.stringify(dataops(data)));}
 			res.end();
