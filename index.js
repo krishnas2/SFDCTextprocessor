@@ -49,7 +49,11 @@ temp='';
 	//logger: new log.Logger(log.DEBUG) // optional
 	client.message(req.body.query).then((data) => {
 	  console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
-	  res.send(JSON.stringify(dataops(data)));
+	  if(!data['entities']['operation'][0]['value'] ){
+		 res,send(JSON.stringify({'raw_resp':data,'lookup':'DB Operation is missing. Ex: Create,Update,Insert etc..'}));
+	  }
+	  else{
+	  res.send(JSON.stringify(dataops(data)));}
 			res.end();
 	});
 	
