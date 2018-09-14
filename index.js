@@ -34,7 +34,7 @@ var dataops=(data)=>{
 			vals=loc[i].split(' ');
 			temp[vals[0]]=vals[1];
 		}
-		//console.log('temp is      ' ,temp);
+		console.log('temp is      ' ,temp);
 		return temp;
 	};
 app.post('/details', (req, res,next) =>{  
