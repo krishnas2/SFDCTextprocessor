@@ -40,7 +40,7 @@ var dataops=(data)=>{
 				v+=' '+valcheck[j];
 			}
 		}
-		temp['look']=v?'Some Required fields like '+v+' are missing to '+temp['operation']+' '+temp['object']:'Text Snetence looks Good!!';
+		temp['lookup']=v?'Some Required fields like '+v+' are missing to '+temp['operation']+' '+temp['object']:'Text Snetence looks Good!!';
 		console.log('temp is      ' ,temp);
 		return temp;
 	};
